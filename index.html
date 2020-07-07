@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Todo List</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+      <!-- Inizio Container -->
+
+      <div class="container">
+        <h2>Todo List</h2>
+        <input class="input" type="text" placeholder="Inserisci una cosa da fare">
+        <button class="bottone">Aggiungi</button>
+        <ol class="todolist">
+        </ol>
+      </div>
+
+
+      <!-- Fine Container -->
+
+      <!-- Inizio template -->
+      <script id="entry-template" type="text/x-handlebars-template">
+        <li data-id="{{ id }}">{{ text }}  <button class="cancella">Cancellami</button></li>
+      </script>
+      <!-- Fine template -->
+
+
+      <script src="script.js" charset="utf-8"></script>
+    </body>
+</html>
