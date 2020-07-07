@@ -23,6 +23,29 @@ $(document).ready(function() {
     }
   })
 
+  // // quando premo Invio parte chiamata API che con metodo POST aggiunge quello che l utente ha scritto nel campo input
+  $('.input').keypress(function(event) {
+    if (event.which === 13 ) { // dove 13 è il codice numerico attribuito al tasto Invio
+      var notaScrittaDaUtente = $('.input').val();
+      if (notaScrittaDaUtente.length > 1) {
+        $.ajax({
+          url: 'http://157.230.17.132:3001/todos/',
+          method: 'POST',
+          data: {
+            text: notaScrittaDaUtente
+          },
+          success: function() {
+            chiamaAPITodoList();
+            $('.input').val(''); // resetto il campo input
+          },
+          error: function() {
+            alert('errore server');
+          }
+        })
+      }
+    }
+  })
+
   // funzione che cancella il singolo oggetto dalla mia API quando clicco sul bottone Cancellami
   $(document).on('click', '.cancella',
     function() {
